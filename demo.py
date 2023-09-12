@@ -1,5 +1,5 @@
 import os
-
+import argparse
 import cv2
 import numpy as np
 import torch
@@ -17,8 +17,18 @@ from utils.plugin_loader import PluginLoader
 mean = torch.tensor([0.485 * 255, 0.456 * 255, 0.406 * 255]).cuda().view(1, 3, 1, 1, 1)
 std = torch.tensor([0.229 * 255, 0.224 * 255, 0.225 * 255]).cuda().view(1, 3, 1, 1, 1)
 
+# Create argument parser
+parser = argparse.ArgumentParser(description='Process video file.')
+parser.add_argument('video_path', type=str, help='Path to the video file')
+
+# Parse arguments
+args = parser.parse_args()
+
+# Use the video_path provided in the command line argument
+video_path = args.video_path
+
 max_frame = 400
-video_path = "examples/shining.mp4"
+
 out_dir = "prediction"
 cfg_path = "i3d_ori.yaml"
 ckpt_path = "checkpoints/model.pth"
