@@ -1,0 +1,6 @@
+jeni 0.27
+scarlet 0.65
+Tom 0.63
+Kiyara 0.78
+obama 0.81
+putin 0.98
